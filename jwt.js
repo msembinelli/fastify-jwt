@@ -187,10 +187,8 @@ function fastifyJwt (fastify, options, next) {
     const request = this
 
     if (next === undefined) {
-      return new Promise(function (resolve, reject) {
-        request.jwtVerify(options, function (err, val) {
-          err ? reject(err) : resolve(val)
-        })
+      return request.jwtVerify(options, function (err, val) {
+        err ? reject(err) : resolve(val)
       })
     }
 
